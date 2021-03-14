@@ -94,11 +94,11 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
-button_r2 = st.button('Show R2 score of the model')
+button_r2 = st.button('R2 score of the model')
 st.write(score)
 #if button_r2:
     #st.write(score)
-button_f1 = st.button('Show F1 score of the model')
+button_f1 = st.button('F1 score of the model')
 st.write(fscore)
 #if button_f1:
     #st.write(fscore)

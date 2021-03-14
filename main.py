@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 # get data:
 df = pd.read_csv('kidney_disease.csv')
 
-# Label encoding: Map text to 1/0 and do some cleaning
+# Label encoding: Map text to 1/0 
 df[['htn','dm','cad','pe','ane']] = df[['htn','dm','cad','pe','ane']].replace(to_replace={'yes':1,'no':0})
 df[['rbc','pc']] = df[['rbc','pc']].replace(to_replace={'abnormal':1,'normal':0})
 df[['pcc','ba']] = df[['pcc','ba']].replace(to_replace={'present':1,'notpresent':0})
@@ -32,10 +32,8 @@ df2 = df.dropna(axis=0)
 df2['class'].value_counts()
 
 # Data splitting:
-X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], 
-                                                    test_size = 0.33, random_state=44,
-                                                   stratify= df2['class'] )
-
+X_train, X_test, y_train, y_test = train_test_split( df2.iloc[:,:-1], df2['class'],test_size = 0.33, random_state=44,stratify= df2['class'] )                                                     
+                                                  
 # Building Decision Tree
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import f1_score,r2_score
@@ -137,7 +135,7 @@ st.write('This is your given information:')
 check_info
 result = dt.predict(check_info)
 
-#dd = df.loc[[df.index[335]]]  'pick one data row to test'
+#dd = df.loc[[df.index[335]]]  'pick one data row to test the model'
 #dd = dd.iloc[:,:-1]
 #dd
 #result = dt.predict(dd)
@@ -145,7 +143,7 @@ result = dt.predict(check_info)
 if result==0:
     ans='You are not at risk of CKD.'
 else:
-    ans='You might be at risk of CKD. Check with your doctor.'
+    ans='You may be at risk of CKD. Check with your doctor.'
 
 check_button = st.sidebar.button('Are you at risk?')
 st.subheader('Model predicts:')

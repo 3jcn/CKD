@@ -95,11 +95,13 @@ with header:
     st.write('')
 
 button_r2 = st.button('Show R2 score of the model')
-if button_r2:
-    st.write(score)
+st.write(score)
+#if button_r2:
+    #st.write(score)
 button_f1 = st.button('Show F1 score of the model')
-if button_f1:
-    st.write(fscore)
+st.write(fscore)
+#if button_f1:
+    #st.write(fscore)
 
 # Sidebar - Sector selection:
 st.sidebar.header('Check yourself:')

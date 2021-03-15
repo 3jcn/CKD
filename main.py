@@ -8,9 +8,10 @@ from sklearn.model_selection import train_test_split
 import warnings
 warnings.filterwarnings('ignore')
 
-# get data:
+# get data (from Kaggle):
 df = pd.read_csv('kidney_disease.csv')
 
+# DATA PREPROCESSING:
 # Label encoding: Map text to 1/0 
 df[['htn','dm','cad','pe','ane']] = df[['htn','dm','cad','pe','ane']].replace(to_replace={'yes':1,'no':0})
 df[['rbc','pc']] = df[['rbc','pc']].replace(to_replace={'abnormal':1,'normal':0})
@@ -19,15 +20,14 @@ df[['appet']] = df[['appet']].replace(to_replace={'good':1,'poor':0,'no':np.nan}
 df['classification'] = df['classification'].replace(to_replace={'ckd':1.0,'ckd\t':1.0,'notckd':0.0,'no':0.0})
 df.rename(columns={'classification':'class'},inplace=True)
 
-# Data preprocessing:
+# Data cleaning:
 df['pe'] = df['pe'].replace(to_replace='good',value=0) # Not having pedal edema is good
 df['appet'] = df['appet'].replace(to_replace='no',value=0)
 df['cad'] = df['cad'].replace(to_replace='\tno',value=0)
 df['dm'] = df['dm'].replace(to_replace={'\tno':0,'\tyes':1,' yes':1, '':np.nan})
 df.drop('id',axis=1,inplace=True)
-
 df2 = df.dropna(axis=0)
-df2['class'].value_counts()
+#df2['class'].value_counts()
 
 # Data splitting:
 X_train, X_test, y_train, y_test = train_test_split( df2.iloc[:,:-1], df2['class'],test_size = 0.33, random_state=44,stratify= df2['class'] )                                                     
@@ -36,6 +36,7 @@ X_train, X_test, y_train, y_test = train_test_split( df2.iloc[:,:-1], df2['class
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import f1_score,r2_score
 dt = DecisionTreeClassifier(criterion = 'entropy', random_state = 42)
+# Model training:
 dt.fit(X_train, y_train)
 
 #dt_pred_train = dt.predict(X_train)

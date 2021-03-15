@@ -68,7 +68,7 @@ st.markdown("""
 
 with header:
     st.title('Predicting Chronic Kidney Disease')
-    st.text('@Author: Thomas Nguyen Date: 28 Feb 2021')
+    st.text('@Author: Thomas Nguyen Date: 12 March 2021')
     
     image = Image.open('ckd.png')
     st.image(image)

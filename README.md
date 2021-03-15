@@ -8,7 +8,8 @@ Treatment for chronic kidney disease focuses on slowing the progression of the k
 With a given list of labs information, this app can predict the risk of a person to have CKD.
 Data of 400 people with 25 features is from Kaggle.
 
-After cleaning data, machine learning decision tree model was used. The R2 score and F1 score of this model is above 90%
-You can test the model here:
+After cleaning data, machine learning decision tree model was used. The R2 score and F1 score of this model is above 90%.
+This app was deployed on Streamlit.
+You can reach this app here:
 
-[Test yourself](https://share.streamlit.io/3jcn/ckd/main/main.py)
+[Test CKD yourself](https://share.streamlit.io/3jcn/ckd/main/main.py)

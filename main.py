@@ -30,7 +30,7 @@ df2['class'].value_counts()
 
 # Data splitting:
 X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], 
-                                                    test_size = 0.33, random_state=44,
+                                                    test_size = 0.33, 
                                                    stratify= df2['class'] )
 
 # Load Decision Tree model:

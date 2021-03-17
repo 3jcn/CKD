@@ -29,9 +29,7 @@ df2 = df.dropna(axis=0)
 df2['class'].value_counts()
 
 # Data splitting:
-X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], 
-                                                    test_size = 0.33, 
-                                                   stratify= df2['class'] )
+X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], test_size = 0.33, stratify= df2['class'] )
 
 # Load Decision Tree model:
 
@@ -130,7 +128,6 @@ check_info = pd.DataFrame({'age':[age],'bp':[bp],'sg':[sg],'al':[al],'su':[su],'
 st.write('This is your given information:')
 check_info
 result = loaded_model.predict(check_info)
-
 
 if result==0:
     ans='You are not at risk of CKD.'

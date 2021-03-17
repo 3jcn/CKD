@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import pickle
 from PIL import Image
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split, GridSearchCV
 import warnings
 warnings.filterwarnings('ignore')

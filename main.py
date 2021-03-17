@@ -74,12 +74,51 @@ with header:
     st.text('CKD dataset from Kaggle: 400 x 25 features')
     df
 
-    # plot some graphs:
-    st.subheader('Age distribution of 250 people with hypertension plus CKD:')
-    df1 = df[ df['htn']==1]
-    df2 = df1[df1['class']==1 ]
-    price_list = pd.DataFrame(df2['age'].round().value_counts())
-    st.bar_chart(price_list)
+     # plot some graphs:
+    st.subheader('Hypertension and Diabetes vs. CKD:')
+    dfa = df[ df['htn']==0 ]
+    dfb = dfa[ dfa['dm']==0 ]
+    t1 = pd.DataFrame.sum(dfb['age'].round().value_counts())
+    dfc = dfb[dfb['class']==1 ]
+    t2 = pd.DataFrame.sum(dfc['age'].round().value_counts())
+    ratio1 = t2/t1
+
+    dfA = df[ df['htn']==1 ]
+    dfB = dfA[ dfA['dm']==1 ]
+    tt1 = pd.DataFrame.sum(dfB['age'].round().value_counts())
+    dfC = dfB[dfB['class']==1 ]
+    tt2 = pd.DataFrame.sum(dfC['age'].round().value_counts())
+    ratio2 = tt2/tt1
+    
+    st.write('Group 1: People got CKD without hypertension and diabetes symptoms')
+    st.write('Group 2: People got CKD with hypertension and diabetes symptoms')
+
+    fig, ax = plt.subplots()
+    # set width of bars
+    barWidth = 0.25
+ 
+    # set heights of bars
+    bars1 = [ratio1]
+    bars2 = [ratio2]
+ 
+    # Set position of bar on X axis
+    #r1 = np.arange(len(bars1))
+    #r2 = [x + barWidth for x in r1]
+    r1 = 0.75
+    r2 = 1.25
+ 
+    # Make the plot
+    plt.bar(r1, bars1, color='#00ff00', width=barWidth, edgecolor='white', label='group 1')
+    plt.bar(r2, bars2, color='#ff0000', width=barWidth, edgecolor='white', label='group 2')
+ 
+    # Add xticks on the middle of the group bars
+    plt.xlim([0,2])
+    plt.ylabel('Percentage (100%)', fontweight='bold')
+    #plt.xticks([r + barWidth for r in range(len(bars1))], ['A', 'B', 'C', 'D', 'E'])
+ 
+    # Create legend & Show graphic
+    plt.legend()
+    st.pyplot(fig,use_column_width=True)
     
     html_temp = """
 	<div style="background-color:brown; padding:10px">

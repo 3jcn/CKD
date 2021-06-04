@@ -133,8 +133,8 @@ with header:
 
 st.write('Confusion Matrix: ', cm)
 st.write('')
-button_r2 = st.button('R2 score of the model')
-st.write(score)
+#button_r2 = st.button('R2 score of the model')
+#st.write(score)
 
 button_f1 = st.button('F1 score of the model')
 st.write(fscore)

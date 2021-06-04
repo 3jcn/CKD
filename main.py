@@ -125,7 +125,7 @@ with header:
     
     html_temp = """
 	<div style="background-color:brown; padding:10px">
-	<h2 style="color:white; text-align:center;">Machine Learning Model: Decision Tree</h2>
+	<h2 style="color:white; text-align:center;">Machine Learning Model Performance</h2>
 	</div>
 	"""
     st.markdown(html_temp,unsafe_allow_html=True)

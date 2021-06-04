@@ -172,7 +172,7 @@ ane=st.sidebar.selectbox('anemia (ane): yes (1) no (0)',options=[0,1])
 
 # make a query:
 check_info = pd.DataFrame({'age':[age],'bp':[bp],'sg':[sg],'al':[al],'su':[su],'rbc':[rbc],'pc':[pc],'pcc':[pcc],'ba':[ba],'bgr':[bgr],'bu':[bu],'sc':[sc],'sod':[sod],'pot':[pot],'heml':[hemo],'pvc':[pcv],'wc':[wc],'rc':[rc],'htn':[htn],'dm':[dm],'cad':[cad],'appet':[appet],'pe':[pe],'ane':[ane]})
-st.write('This is your given information:')
+st.write('This is your given information: (you can modify this information from the left sidebar)')
 check_info
 result = loaded_model.predict(check_info)
 

@@ -34,13 +34,14 @@ X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'
 
 # Load Decision Tree model:
 
-from sklearn.metrics import f1_score,r2_score
+from sklearn.metrics import f1_score, r2_score, confusion_matrix, accuracy_score
 loaded_model = pickle.load(open('CKDdecisiontree_model.sav','rb'))
 
 dt_pred_test = loaded_model.predict(X_test)
 
 score = r2_score(y_test,dt_pred_test)
 fscore = f1_score(y_test,dt_pred_test)
+cm = confusion_matrix(y_test,dt_pred_test)
 
 ################## Streamlit ###############
 
@@ -129,6 +130,8 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
+st.write('Confusion Matrix: ', cm)
+st.write('')
 button_r2 = st.button('R2 score of the model')
 st.write(score)
 

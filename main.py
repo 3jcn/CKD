@@ -137,11 +137,11 @@ st.write('')
 #st.write(score)
 
 #button_f1 = st.button('F1 score of the model')
-st.write('F1 score of the model')
+st.write('F1 score of the model:')
 st.write(fscore)
 
 #button_acc = st.button('Accuracy score of the model')
-st.write('Accuracy score of the model')
+st.write('Accuracy score of the model:')
 st.write(accuracy)
 
 # Sidebar - Sector selection:

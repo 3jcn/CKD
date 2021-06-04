@@ -42,6 +42,7 @@ dt_pred_test = loaded_model.predict(X_test)
 score = r2_score(y_test,dt_pred_test)
 fscore = f1_score(y_test,dt_pred_test)
 cm = confusion_matrix(y_test,dt_pred_test)
+accuracy = accuracy_score(y_test,dt_pred_test)
 
 ################## Streamlit ###############
 
@@ -137,6 +138,9 @@ st.write(score)
 
 button_f1 = st.button('F1 score of the model')
 st.write(fscore)
+
+button_acc = st.button('Accuracy score of the model')
+st.write(accuracy)
 
 # Sidebar - Sector selection:
 st.sidebar.header('Check yourself:')

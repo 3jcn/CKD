@@ -181,7 +181,7 @@ if result==0:
 else:
     ans='You might be at risk of CKD. Check with your doctor.'
 
-check_button = st.sidebar.button('Are you at risk?')
+check_button = st.button('Are you at risk?')
 st.subheader('Model predicts:')
 if check_button:
     st.sidebar.write(ans)

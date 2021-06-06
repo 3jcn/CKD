@@ -144,8 +144,8 @@ with header:
 #ax = fig.add_subplot(1,1,1)
 fig, ax = plt.subplots()
 group = y_resampled  # df["class"]
-cdict = {0.0: 'red', 1.0: 'blue'}
-for g in np.unique(group):
+cdict = {0: 'red', 1: 'blue'}
+for g in np.unique(group.astype(int)):
     ix = np.where(group == g)
     ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cdict[g], label = g, s = 30)
     #ax.scatter(df["age"], df["hemo"], c = cdict[g], label = g, s = 100)

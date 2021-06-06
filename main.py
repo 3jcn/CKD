@@ -143,8 +143,9 @@ with header:
 fig, ax = plt.subplots()
 group = y_resampled 
 cmap = {0.0: 'red', 1.0: 'blue'}
+colors = np.random.rand(3)
 for g in (group):
-    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cmap[g], s = 30)
+    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = colors, s = 30)
 
 ax.set_xlabel("Age")
 ax.set_ylabel("Hemoglobin")

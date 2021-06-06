@@ -144,7 +144,7 @@ with header:
 #st.pyplot(fig)
 #if st.checkbox("Seaborn Pairplot",value=True):
 tips = sns.load_dataset(X)
-fig = sns.scatterplot(data=tips, x="age", y="hemo", hue="class")
+fig = sns.scatterplot(df.age, df.hemo, df['class'], palette='Set1', legend=False)
 st.pyplot(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')

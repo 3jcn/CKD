@@ -143,7 +143,7 @@ with header:
 fig, ax = plt.subplots()
 group = y_resampled 
 cdict = {0: 'red', 1: 'blue'}
-for g in np.unique(group.astype(int)):
+for g in (group.astype(int)):
     #ix = np.where(group == g)
     ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cdict[g], s = 30)
 

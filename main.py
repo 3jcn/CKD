@@ -26,14 +26,22 @@ df['cad'] = df['cad'].replace(to_replace='\tno',value=0)
 df['dm'] = df['dm'].replace(to_replace={'\tno':0,'\tyes':1,' yes':1, '':np.nan})
 df.drop('id',axis=1,inplace=True)
 
+# Drop rows with missing data:
 df2 = df.dropna(axis=0)
-df2['class'].value_counts()
+df2['class'].value_counts() # 43 for 1 and 115 for 0 (unbalanced dataset)
+
+# Solve unbalanced data problem: use SMOTH to increase data for 1:
+from imblearn.over_sampling import SMOTE
+X = df2.iloc[:,:-1]
+y = df2['class']
+X_resampled, y_resampled = SMOTE().fit_resample(X, y)
+X_resampled = pd.DataFrame(X_resampled, columns=X.columns)
 
 # Data splitting:
-X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], test_size = 0.33, stratify= df2['class'] )
+# X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], test_size = 0.33, stratify= df2['class'] )
+X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size = 0.33, stratify= y_resampled] )
 
 # Load Decision Tree model:
-
 from sklearn.metrics import f1_score, r2_score, confusion_matrix, accuracy_score
 loaded_model = pickle.load(open('CKDdecisiontree_model.sav','rb'))
 

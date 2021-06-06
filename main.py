@@ -151,6 +151,7 @@ st.write('')
 #st.write(score)
 
 #button_f1 = st.button('F1 score of the model')
+
 st.write('F1 score of the model:')
 st.write(fscore)
 

@@ -140,9 +140,18 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
-fig = plt.figure()
-fig = plt.scatter(df.age, df.hemo)
-st.write(fig)
+ fig = plt.figure()
+ ax = fig.add_subplot(1,1,1)
+
+ ax.scatter(
+        df["age"],
+        df["hemo"],
+ )
+
+    ax.set_xlabel("Acceleration")
+    ax.set_ylabel("Miles per gallon")
+
+    st.write(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')
 #button_r2 = st.button('R2 score of the model')

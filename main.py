@@ -151,6 +151,7 @@ for g in np.unique(group):
 
 ax.set_xlabel("Age")
 ax.set_ylabel("Hemoglobin")
+ax.legend()
 st.write(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')

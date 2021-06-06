@@ -143,12 +143,12 @@ with header:
 fig, ax = plt.subplots()
 group = y_resampled 
 cdict = {0: 'red', 1: 'blue'}
-for g in (group.astype(int)):
-    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cdict[g], s = 30, legend=True)
+for g in (group):
+    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cdict[g], s = 30)
 
 ax.set_xlabel("Age")
 ax.set_ylabel("Hemoglobin")
-#ax.legend()
+ax.legend()
 st.write(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')

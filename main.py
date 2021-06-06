@@ -139,6 +139,8 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
+sns.scatterplot(X.age, X.hemo, y, palette='Set1', legend=False)
+st.pyplot()
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')
 #button_r2 = st.button('R2 score of the model')

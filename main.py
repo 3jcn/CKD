@@ -140,15 +140,12 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
-#fig = plt.figure()
-#ax = fig.add_subplot(1,1,1)
 fig, ax = plt.subplots()
-group = y_resampled  # df["class"]
+group = y_resampled 
 cdict = {0: 'red', 1: 'blue'}
 for g in np.unique(group.astype(int)):
     ix = np.where(group == g)
-    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cdict[g], label = g, s = 30)
-    #ax.scatter(df["age"], df["hemo"], c = cdict[g], label = g, s = 100)
+    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cdict[g], s = 30)
 
 ax.set_xlabel("Age")
 ax.set_ylabel("Hemoglobin")

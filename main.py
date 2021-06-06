@@ -4,6 +4,7 @@ import pandas as pd
 import pickle
 from PIL import Image
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.model_selection import train_test_split, GridSearchCV
 import warnings
 warnings.filterwarnings('ignore')
@@ -139,7 +140,7 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
-plt.scatterplot(X.age, X.hemo, y, palette='Set1', legend=False)
+sns.scatterplot(X.age, X.hemo, y, palette='Set1', legend=False)
 st.pyplot()
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')

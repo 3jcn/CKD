@@ -143,7 +143,6 @@ with header:
 fig, ax = plt.subplots()
 group = y_resampled 
 cmap = {0: 'red', 1: 'blue'}
-colors = np.random.rand(3)
 for g in (group):
     ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cmap[g], s = 30)
 

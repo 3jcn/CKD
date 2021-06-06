@@ -37,7 +37,7 @@ X = df2.iloc[:,:-1]
 y = df2['class']
 X_resampled, y_resampled = SMOTE().fit_resample(X, y)
 X_resampled = pd.DataFrame(X_resampled, columns=X.columns)
-# create data for seaborn:
+# create data for seaborn scatter plot:
 data_sns = pd.concat([X_resampled,y_resampled],axis=1)
 
 # Data splitting:

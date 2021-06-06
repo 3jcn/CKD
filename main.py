@@ -142,9 +142,9 @@ with header:
 
 #fig = sns.scatterplot(X.age, X.hemo, y, palette='Set1', legend=False)
 #st.pyplot(fig)
-if st.checkbox("Seaborn Pairplot",value=True):
-	fig = sns.scatterplot(X.age, X.hemo, y)
-	st.pyplot(fig)
+#if st.checkbox("Seaborn Pairplot",value=True):
+	#fig = sns.scatterplot(X.age, X.hemo, y)
+	#st.pyplot(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')
 #button_r2 = st.button('R2 score of the model')

@@ -142,7 +142,7 @@ with header:
 
 fig = plt.figure()
 fig = plt.scatter(df.age, df.hemo)
-st.pyplot(fig)
+st.write(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')
 #button_r2 = st.button('R2 score of the model')

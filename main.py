@@ -143,7 +143,7 @@ with header:
 #fig = plt.figure()
 #ax = fig.add_subplot(1,1,1)
 fig, ax = plt.subplots()
-group = y_resampled.values  # df["class"]
+group = y_resampled  # df["class"]
 cdict = {0.0: 'red', 1.0: 'blue'}
 for g in np.unique(group):
     ix = np.where(group == g)

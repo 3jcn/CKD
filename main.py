@@ -146,6 +146,7 @@ ax = fig.add_subplot(1,1,1)
 ax.scatter(
     df["age"],
     df["hemo"],
+    df["class"],
 )
 ax.set_xlabel("Age")
 ax.set_ylabel("Hemoglobin")

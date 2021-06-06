@@ -37,6 +37,8 @@ X = df2.iloc[:,:-1]
 y = df2['class']
 X_resampled, y_resampled = SMOTE().fit_resample(X, y)
 X_resampled = pd.DataFrame(X_resampled, columns=X.columns)
+# create data for seaborn:
+data_sns = pd.concat([X_resampled,y_resampled],axis=1)
 
 # Data splitting:
 # X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], test_size = 0.33, stratify = df2['class'] )
@@ -141,7 +143,7 @@ with header:
     st.write('')
 
 fig2 = plt.figure()
-sns.scatterplot(data=df2 , x = 'age' , y = 'hemo' , hue='class')
+sns.scatterplot(data=data_sns , x = 'age' , y = 'hemo' , hue='class')
 st.pyplot(fig2)
 
 st.write('Confusion Matrix: (balanced dataset)', cm)

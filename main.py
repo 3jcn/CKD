@@ -143,7 +143,7 @@ with header:
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
 group = y_resampled.values  # df["class"]
-cdict = {0: 'red', 1: 'blue'}
+cdict = {0.0: 'red', 1.0: 'blue'}
 for g in np.unique(group):
     ix = np.where(group == g)
     ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cdict[g], label = g, s = 100)

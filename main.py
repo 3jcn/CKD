@@ -140,16 +140,10 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
-fig, ax = plt.subplots()
-group = y_resampled 
-cmap = {0: 'red', 1: 'blue'}
-for g in (group):
-    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cmap[g], s = 30)
+fig2 = plt.figure()
+sns.scatterplot(data=df2 , x = 'age' , y = 'hemo' , hue='class')
+st.pyplot(fig2)
 
-ax.set_xlabel("Age")
-ax.set_ylabel("Hemoglobin")
-ax.legend()
-st.write(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')
 #button_r2 = st.button('R2 score of the model')

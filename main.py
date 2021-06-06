@@ -17,7 +17,7 @@ df[['htn','dm','cad','pe','ane']] = df[['htn','dm','cad','pe','ane']].replace(to
 df[['rbc','pc']] = df[['rbc','pc']].replace(to_replace={'abnormal':1,'normal':0})
 df[['pcc','ba']] = df[['pcc','ba']].replace(to_replace={'present':1,'notpresent':0})
 df[['appet']] = df[['appet']].replace(to_replace={'good':1,'poor':0,'no':np.nan})
-df['classification'] = df['classification'].replace(to_replace={'ckd':1.0,'ckd\t':1.0,'notckd':0.0,'no':0.0})
+df['classification'] = df['classification'].replace(to_replace={'ckd':1,'ckd\t':1,'notckd':0,'no':0})
 df.rename(columns={'classification':'class'},inplace=True)
 
 # Data preprocessing:
@@ -142,10 +142,10 @@ with header:
 
 fig, ax = plt.subplots()
 group = y_resampled 
-cmap = {0.0: 'red', 1.0: 'blue'}
+cmap = {0: 'red', 1: 'blue'}
 colors = np.random.rand(3)
 for g in (group):
-    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = colors, s = 30)
+    ax.scatter(X_resampled["age"], X_resampled["hemo"], c = cmap[g], s = 30)
 
 ax.set_xlabel("Age")
 ax.set_ylabel("Hemoglobin")

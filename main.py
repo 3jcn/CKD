@@ -140,8 +140,9 @@ with header:
     st.markdown(html_temp,unsafe_allow_html=True)
     st.write('')
 
-fig = plt.figure()
-ax = fig.add_subplot(1,1,1)
+#fig = plt.figure()
+#ax = fig.add_subplot(1,1,1)
+fig, ax = plt.subplots()
 group = y_resampled.values  # df["class"]
 cdict = {0.0: 'red', 1.0: 'blue'}
 for g in np.unique(group):

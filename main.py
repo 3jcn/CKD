@@ -39,7 +39,7 @@ X_resampled = pd.DataFrame(X_resampled, columns=X.columns)
 
 # Data splitting:
 # X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], test_size = 0.33, stratify= df2['class'] )
-X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size = 0.33, stratify= y_resampled] )
+X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size = 0.33, stratify= y_resampled )
 
 # Load Decision Tree model:
 from sklearn.metrics import f1_score, r2_score, confusion_matrix, accuracy_score

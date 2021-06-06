@@ -142,15 +142,14 @@ with header:
 
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
+group = df["class"]
+cdict = {1: 'red', 0: 'blue'}
+for g in np.unique(group):
+    ix = np.where(group == g)
+    ax.scatter(df["age"], df["hemo"], c = cdict[g], label = g, s = 100)
 
-ax.scatter(
-    df["age"],
-    df["hemo"],
-    df["class"],
-)
 ax.set_xlabel("Age")
 ax.set_ylabel("Hemoglobin")
-
 st.write(fig)
 st.write('Confusion Matrix: (balanced dataset)', cm)
 st.write('')

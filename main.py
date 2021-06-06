@@ -39,6 +39,7 @@ X_resampled, y_resampled = SMOTE().fit_resample(X, y)
 X_resampled = pd.DataFrame(X_resampled, columns=X.columns)
 # create data for seaborn scatter plot:
 data_sns = pd.concat([X_resampled,y_resampled],axis=1)
+data_sns['class'] = data_sns['class'].replace(to_replace={1:'ckd',0:'notckd'})
 
 # Data splitting:
 # X_train, X_test, y_train, y_test = train_test_split(df2.iloc[:,:-1], df2['class'], test_size = 0.33, stratify = df2['class'] )

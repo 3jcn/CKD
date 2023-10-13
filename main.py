@@ -57,7 +57,9 @@ cm = confusion_matrix(y_test,dt_pred_test)
 accuracy = accuracy_score(y_test,dt_pred_test)
 
 ################## Streamlit ###############
-st.text(":red[Big Brother messed up my data...All of my apps are not working properly.]")
+st.markdown('''
+    :red[Big Brother messed up my data. All my apps are not working properly...].''')
+
 header = st.beta_container()
 
 st.markdown("""

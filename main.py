@@ -82,10 +82,10 @@ st.markdown("""
 with header:
     st.title('Predicting Chronic Kidney Disease')
     st.text('@Author: Thomas Nguyen Date: 28 Feb 2021')
-    st.markdown(""":red[Big Brother messed up my data...All of my apps are not working properly.]""")
     image = Image.open('ckd.png')
     st.image(image)
     
+    st.markdown(""":red[Big Brother messed up my data...All of my apps are not working properly.]""")
     st.text('CKD dataset from Kaggle: 400 x 25 features')
     df
 

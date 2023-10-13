@@ -85,8 +85,7 @@ with header:
     image = Image.open('ckd.png')
     st.image(image)
     
-    st.markdown('''
-    	:red[Big Brother messed up my data...All of my apps are not working properly.]''')
+    st.text(":red[Big Brother messed up my data...All of my apps are not working properly.]")
 	
     st.text('CKD dataset from Kaggle: 400 x 25 features')
     df
